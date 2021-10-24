@@ -9,13 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Core.Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Core.Data.Entity", "BootcampMarket.Core.Data.Entity", "{676E2691-78A4-4045-8E71-9DBF85D2F470}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Core.Data.Entity", "BootcampMarket.Core.Data.Entity\BootcampMarket.Core.Data.Entity.csproj", "{384CB2CF-4262-4716-B452-92B41CD1BEB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Core.Data.Entity", "BootcampMarket.Core.Data.Entity\BootcampMarket.Core.Data.Entity.csproj", "{384CB2CF-4262-4716-B452-92B41CD1BEB8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Core.Data.Repository", "BootcampMarket.Core.Data.Repository", "{A9C692F3-8402-4A16-BE9E-299199703976}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Core.Data.Repository.Infrastructure", "BootcampMarket.Core.Data.Repository.Infrastructure\BootcampMarket.Core.Data.Repository.Infrastructure.csproj", "{C355A6DE-FFF8-46D3-8F9D-F9B42DCD330D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Core.Data.Repository.Infrastructure", "BootcampMarket.Core.Data.Repository.Infrastructure\BootcampMarket.Core.Data.Repository.Infrastructure.csproj", "{C355A6DE-FFF8-46D3-8F9D-F9B42DCD330D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Core.Data.Repository.Concrete", "BootcampMarket.Core.Data.Repository.Concrete\BootcampMarket.Core.Data.Repository.Concrete.csproj", "{33AA8549-7BA7-4720-ADC5-B0794B6D888F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Core.Data.Repository.Concrete", "BootcampMarket.Core.Data.Repository.Concrete\BootcampMarket.Core.Data.Repository.Concrete.csproj", "{33AA8549-7BA7-4720-ADC5-B0794B6D888F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Data", "BootcampMarket.Data", "{E21371A9-FEE6-441B-BE1A-F52D7E9FE75D}"
 EndProject
@@ -27,19 +27,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Data.MSSQL",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Data.Oracle", "BootcampMarket.Data.Oracle", "{E193A231-6F72-4CE2-B1E0-883BE99CD18D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Data.MSSQL.Entity", "BootcampMarket.Data.MSSQL.Entity\BootcampMarket.Data.MSSQL.Entity.csproj", "{F4B9DBD0-8BBA-4DFC-8FE4-FB4CB6B858A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Data.MSSQL.Entity", "BootcampMarket.Data.MSSQL.Entity\BootcampMarket.Data.MSSQL.Entity.csproj", "{F4B9DBD0-8BBA-4DFC-8FE4-FB4CB6B858A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Data.MSSQL.Repository.Infrastructure", "BootcampMarket.Data.MSSQL.Repository.Infrastructe\BootcampMarket.Data.MSSQL.Repository.Infrastructure.csproj", "{961FBFDD-80C3-4455-AFA6-A87B33B99873}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Data.MSSQL.Repository.Infrastructure", "BootcampMarket.Data.MSSQL.Repository.Infrastructe\BootcampMarket.Data.MSSQL.Repository.Infrastructure.csproj", "{961FBFDD-80C3-4455-AFA6-A87B33B99873}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Data.MSSQL.Repository.Dapper", "BootcampMarket.Data.MSSQL.Repository.Dapper", "{34A89FF2-F6A9-43D6-91F6-1C97339D7754}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Data.MSSQL.Repository.Dapper", "BootcampMarket.Data.MSSQL.Repository.Dapper\BootcampMarket.Data.MSSQL.Repository.Dapper.csproj", "{B4819D8B-81B9-4832-AFAE-B7CEECB31D43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Data.MSSQL.Repository.Dapper", "BootcampMarket.Data.MSSQL.Repository.Dapper\BootcampMarket.Data.MSSQL.Repository.Dapper.csproj", "{B4819D8B-81B9-4832-AFAE-B7CEECB31D43}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Data.MSSQL.Repository.EntityFramework", "BootcampMarket.Data.MSSQL.Repository.EntityFramework", "{A5E3069C-22BF-4816-8AB2-5CF8723216A7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Service", "BootcampMarket.Service", "{6495CCDB-B576-45E7-BDEC-51B3FC35518E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Service.API", "BootcampMarket.Service.API\BootcampMarket.Service.API.csproj", "{7134366B-9063-42EB-AF31-7A0D246594BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Service.API", "BootcampMarket.Service.API\BootcampMarket.Service.API.csproj", "{7134366B-9063-42EB-AF31-7A0D246594BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Data.MSSQL.Repository.Dapper.Base", "BootcampMarket.Data.MSSQL.Repository.Dapper.Base\BootcampMarket.Data.MSSQL.Repository.Dapper.Base.csproj", "{EA1C3E6A-EB5D-49B2-AE6B-C5C9E5B33751}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Core.Data.UnitOfWork", "BootcampMarket.Core.Data.UnitOfWork", "{A8AC914A-7DBE-4431-BD6A-B9CD42AFBEE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Core.Data.UnitOfWork.Infrastructure", "BootcampMarket.Core.Data.UnitOfWork.Infrastructure\BootcampMarket.Core.Data.UnitOfWork.Infrastructure.csproj", "{9B03836A-9C2B-4DD4-B82C-FB722290D411}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Core.Data.UnitOfWork.Concrete", "BootcampMarket.Core.Data.UnitOfWork.Concrete\BootcampMarket.Core.Data.UnitOfWork.Concrete.csproj", "{B3143D25-EF5B-4DC6-90F7-13084F840270}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Data.MSSQL.UnitOfWork", "BootcampMarket.Data.MSSQL.UnitOfWork", "{DC52CD0A-867E-4CF8-9E44-3B29A1093ADE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Data.MSSQL.UnitOfWork.Dapper", "BootcampMarket.Data.MSSQL.UnitOfWork.Dapper\BootcampMarket.Data.MSSQL.UnitOfWork.Dapper.csproj", "{29C969D6-0E3A-41F0-A4CB-A58CA69AA13A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +87,22 @@ Global
 		{7134366B-9063-42EB-AF31-7A0D246594BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7134366B-9063-42EB-AF31-7A0D246594BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7134366B-9063-42EB-AF31-7A0D246594BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA1C3E6A-EB5D-49B2-AE6B-C5C9E5B33751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA1C3E6A-EB5D-49B2-AE6B-C5C9E5B33751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA1C3E6A-EB5D-49B2-AE6B-C5C9E5B33751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA1C3E6A-EB5D-49B2-AE6B-C5C9E5B33751}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B03836A-9C2B-4DD4-B82C-FB722290D411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B03836A-9C2B-4DD4-B82C-FB722290D411}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B03836A-9C2B-4DD4-B82C-FB722290D411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B03836A-9C2B-4DD4-B82C-FB722290D411}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3143D25-EF5B-4DC6-90F7-13084F840270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3143D25-EF5B-4DC6-90F7-13084F840270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3143D25-EF5B-4DC6-90F7-13084F840270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3143D25-EF5B-4DC6-90F7-13084F840270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29C969D6-0E3A-41F0-A4CB-A58CA69AA13A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29C969D6-0E3A-41F0-A4CB-A58CA69AA13A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29C969D6-0E3A-41F0-A4CB-A58CA69AA13A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29C969D6-0E3A-41F0-A4CB-A58CA69AA13A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +124,12 @@ Global
 		{B4819D8B-81B9-4832-AFAE-B7CEECB31D43} = {34A89FF2-F6A9-43D6-91F6-1C97339D7754}
 		{A5E3069C-22BF-4816-8AB2-5CF8723216A7} = {2009A46A-BA39-4A0E-B4D7-8D5294B3DBEB}
 		{7134366B-9063-42EB-AF31-7A0D246594BC} = {6495CCDB-B576-45E7-BDEC-51B3FC35518E}
+		{EA1C3E6A-EB5D-49B2-AE6B-C5C9E5B33751} = {34A89FF2-F6A9-43D6-91F6-1C97339D7754}
+		{A8AC914A-7DBE-4431-BD6A-B9CD42AFBEE9} = {F2E91A0C-8750-43D8-B4BB-B2813920D725}
+		{9B03836A-9C2B-4DD4-B82C-FB722290D411} = {A8AC914A-7DBE-4431-BD6A-B9CD42AFBEE9}
+		{B3143D25-EF5B-4DC6-90F7-13084F840270} = {A8AC914A-7DBE-4431-BD6A-B9CD42AFBEE9}
+		{DC52CD0A-867E-4CF8-9E44-3B29A1093ADE} = {524CDE7C-3F8C-4692-A302-A363656C130F}
+		{29C969D6-0E3A-41F0-A4CB-A58CA69AA13A} = {DC52CD0A-867E-4CF8-9E44-3B29A1093ADE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2C1676A-012E-4500-A055-66AD88B50B9C}

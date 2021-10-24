@@ -1,5 +1,5 @@
-using BootcampMarket.Data.MSSQL.Repository.Dapper;
-using BootcampMarket.Data.MSSQL.Repository.Infrastructure;
+using BootcampMarket.Data.MSSQL.UnitOfWork.Dapper;
+using BootcampMarket.Data.MSSQL.UnitOfWork.Dapper.ServiceCollectionExtensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -27,7 +27,10 @@ namespace BootcampMarket.Service.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BootcampMarket.Service.API", Version = "v1" });
             });
 
-            services.AddScoped<ICountryRepository, CountryRepository>();
+            services.AddDapperUnitOfWork(new DapperUnitOfWorkOptions
+            {
+                ConnectionString = "Server=.;Database=BootcampMarketDb;Trusted_Connection=True;"
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

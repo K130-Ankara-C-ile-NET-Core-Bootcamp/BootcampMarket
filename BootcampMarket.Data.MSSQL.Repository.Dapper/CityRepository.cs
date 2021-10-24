@@ -1,12 +1,21 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Threading.Tasks;
 using BootcampMarket.Data.MSSQL.Entity;
+using BootcampMarket.Data.MSSQL.Repository.Dapper.Base;
 using BootcampMarket.Data.MSSQL.Repository.Infrastructure;
 
 namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 {
-    public class CityRepository : ICityRepository
+    public class CityRepository : DapperRepositoryBase, ICityRepository
     {
+        public CityRepository(
+            IDbConnection connection, 
+            IDbTransaction transaction) 
+            : base(connection, transaction)
+        {
+        }
+
         public Task<int> DeleteAsync(City entity)
         {
             throw new System.NotImplementedException();

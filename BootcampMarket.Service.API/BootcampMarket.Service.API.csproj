@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Repository.Dapper\BootcampMarket.Data.MSSQL.Repository.Dapper.csproj" />
+    <ProjectReference Include="..\BootcampMarket.Data.MSSQL.UnitOfWork.Dapper\BootcampMarket.Data.MSSQL.UnitOfWork.Dapper.csproj" />
   </ItemGroup>
 
 </Project>
