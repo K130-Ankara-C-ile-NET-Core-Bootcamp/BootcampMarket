@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BootcampMarket.Data.MSSQL.Entity;
 using BootcampMarket.Data.MSSQL.Repository.Dapper.Base;
 using BootcampMarket.Data.MSSQL.Repository.Infrastructure;
+using Dapper;
 
 namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 {
@@ -19,32 +20,73 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<int> DeleteAsync(CustomerAddress entity)
         {
-            throw new NotImplementedException();
+            return DeleteByIdAsync(entity.Id);
         }
 
         public Task<int> DeleteByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var sql = @"UPDATE CustomerAddress SET DeleteDate = GETDATE()
+                        WHERE Id = @Id AND DeleteDate IS NULL";
+
+            return Connection.ExecuteAsync(
+                sql,
+                param: new { Id = id },
+                transaction: Transaction);
         }
 
         public Task<IEnumerable<CustomerAddress>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var sql = @"SELECT * FROM CustomerAddress WHERE DeleteDate IS NULL";
+
+            return Connection.QueryAsync<CustomerAddress>(sql, transaction: Transaction);
         }
 
         public Task<CustomerAddress> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var sql = @"SELECT * FROM CustomerAddress WHERE ID = @Id AND DeleteDate IS NULL";
+
+            return Connection.QueryFirstOrDefaultAsync<CustomerAddress>(
+                sql,
+                param: new { Id = id },
+                transaction: Transaction);
         }
 
         public Task<int> InsertAsync(CustomerAddress entity)
         {
-            throw new NotImplementedException();
+            var sql = @"INSERT INTO Country 
+                        (
+                         CustomerId, CountryId, CityId, 
+                         DistrictId, Address, CreatedBy
+                        )
+                        VALUES
+                        (
+                        @CustomerId, @CountryId, @CityId, 
+                        @DistrictId, @Address, @CreatedBy
+                        )
+                        SELECT SCOPE_IDENTITY()";
+
+            return Connection.QuerySingleAsync<int>(
+                sql,
+                param: entity,
+                transaction: Transaction);
         }
 
         public Task<int> UpdateAsync(CustomerAddress entity)
         {
-            throw new NotImplementedException();
+            var sql = @"UPDATE Country SET
+                        CustomerId = @CustomerId,
+                        CountryId = @CountryId,
+                        CityId = @CityId,
+                        DistrictId = @DistrictId,
+                        Address = @Address,
+                        ModifyDate = GETDATE(),
+                        ModifiedBy = @ModifiedBy
+                        WHERE ID = @Id AND DELETETIME IS NULL";
+
+            return Connection.ExecuteAsync(
+                sql,
+                param: entity,
+                transaction: Transaction);
         }
     }
 }

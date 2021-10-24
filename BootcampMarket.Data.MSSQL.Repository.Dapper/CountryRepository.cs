@@ -66,7 +66,7 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
         {
             var sql = @"UPDATE Country SET
                         Name = @Name,
-                        ModifyDate = @ModifyDate,
+                        ModifyDate = GETDATE(),
                         ModifiedBy = @ModifiedBy
                         WHERE ID = @Id AND DELETETIME IS NULL";
 

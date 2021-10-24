@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BootcampMarket.Data.MSSQL.Entity;
 using BootcampMarket.Data.MSSQL.Repository.Dapper.Base;
 using BootcampMarket.Data.MSSQL.Repository.Infrastructure;
+using Dapper;
 
 namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 {
@@ -19,32 +20,65 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<int> DeleteAsync(User entity)
         {
-            throw new NotImplementedException();
+            return DeleteByIdAsync(entity.Id);
         }
 
         public Task<int> DeleteByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var sql = @"UPDATE [User] SET DeleteDate = GETDATE()
+                        WHERE Id = @Id AND DeleteDate IS NULL";
+
+            return Connection.ExecuteAsync(
+                sql,
+                param: new { Id = id },
+                transaction: Transaction);
         }
 
         public Task<IEnumerable<User>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var sql = @"SELECT * FROM [User] WHERE DeleteDate IS NULL";
+
+            return Connection.QueryAsync<User>(sql, transaction: Transaction);
         }
 
         public Task<User> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var sql = @"SELECT * FROM [User] WHERE ID = @Id AND DeleteDate IS NULL";
+
+            return Connection.QueryFirstOrDefaultAsync<User>(
+                sql,
+                param: new { Id = id },
+                transaction: Transaction);
         }
 
         public Task<int> InsertAsync(User entity)
         {
-            throw new NotImplementedException();
+            var sql = @"INSERT INTO [User] 
+                        (Email, Password, UserName, CreatedBy)
+                        VALUES
+                        (@Email, @Password, @UserName, @CreatedBy)
+                        SELECT SCOPE_IDENTITY()";
+
+            return Connection.QuerySingleAsync<int>(
+                sql,
+                param: entity,
+                transaction: Transaction);
         }
 
         public Task<int> UpdateAsync(User entity)
         {
-            throw new NotImplementedException();
+            var sql = @"UPDATE [User] SET
+                        Email = @Email, 
+                        Password = @Password, 
+                        UserName = @UserName,
+                        ModifyDate = GETDATE(),
+                        ModifiedBy = @ModifiedBy
+                        WHERE ID = @Id AND DELETETIME IS NULL";
+
+            return Connection.ExecuteAsync(
+                sql,
+                param: entity,
+                transaction: Transaction);
         }
     }
 }

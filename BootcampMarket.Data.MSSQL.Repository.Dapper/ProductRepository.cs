@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BootcampMarket.Data.MSSQL.Entity;
 using BootcampMarket.Data.MSSQL.Repository.Dapper.Base;
 using BootcampMarket.Data.MSSQL.Repository.Infrastructure;
+using Dapper;
 
 namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 {
@@ -19,32 +20,71 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<int> DeleteAsync(Product entity)
         {
-            throw new NotImplementedException();
+            return DeleteByIdAsync(entity.Id);
         }
 
         public Task<int> DeleteByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var sql = @"UPDATE Product SET DeleteDate = GETDATE()
+                        WHERE Id = @Id AND DeleteDate IS NULL";
+
+            return Connection.ExecuteAsync(
+                sql,
+                param: new { Id = id },
+                transaction: Transaction);
         }
 
         public Task<IEnumerable<Product>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var sql = @"SELECT * FROM Product WHERE DeleteDate IS NULL";
+
+            return Connection.QueryAsync<Product>(sql, transaction: Transaction);
         }
 
         public Task<Product> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var sql = @"SELECT * FROM Product WHERE ID = @Id AND DeleteDate IS NULL";
+
+            return Connection.QueryFirstOrDefaultAsync<Product>(
+                sql,
+                param: new { Id = id },
+                transaction: Transaction);
         }
 
         public Task<int> InsertAsync(Product entity)
         {
-            throw new NotImplementedException();
+            var sql = @"INSERT INTO Product 
+                        (
+                            Name, Price,
+                            Discount, CreatedBy
+                        )
+                        VALUES
+                        (
+                            @Name, @Price,
+                            @Discount, @CreatedBy
+                        )
+                        SELECT SCOPE_IDENTITY()";
+
+            return Connection.QuerySingleAsync<int>(
+                sql,
+                param: entity,
+                transaction: Transaction);
         }
 
         public Task<int> UpdateAsync(Product entity)
         {
-            throw new NotImplementedException();
+            var sql = @"UPDATE Product SET
+                        Name = @Name, 
+                        Price = @Price,
+                        Discount = @Discount,
+                        ModifyDate = GETDATE(),
+                        ModifiedBy = @ModifiedBy
+                        WHERE ID = @Id AND DELETETIME IS NULL";
+
+            return Connection.ExecuteAsync(
+                sql,
+                param: entity,
+                transaction: Transaction);
         }
     }
 }
