@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Repository.Infrastructe\BootcampMarket.Data.MSSQL.Repository.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
