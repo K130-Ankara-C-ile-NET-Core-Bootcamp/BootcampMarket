@@ -1,5 +1,3 @@
-using BootcampMarket.Data.MSSQL.UnitOfWork.Dapper;
-using BootcampMarket.Data.MSSQL.UnitOfWork.Dapper.ServiceCollectionExtensions;
 using BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework;
 using BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework.ServiceCollectionExtensions;
 using Microsoft.AspNetCore.Builder;
@@ -29,14 +27,17 @@ namespace BootcampMarket.Service.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BootcampMarket.Service.API", Version = "v1" });
             });
 
+            var conStr = "Server=.;Database=BootcampMarketDb;Trusted_Connection=True;";
+
             //services.AddDapperUnitOfWork(new DapperUnitOfWorkOptions
             //{
-            //    ConnectionString = "Server=.;Database=BootcampMarketDb;Trusted_Connection=True;"
+            //    ConnectionString = conStr
             //});
 
             services.AddEntityFrameworkUnitOfWork(new EntityFrameworkUnitOfWorkOptions
             {
-                ConnectionString = "Server=.;Database=BootcampMarketDb;Trusted_Connection=True;"
+                ConnectionString = conStr,
+                MigrationAssembly = "BootcampMarket.Data.MSSQL.Migrations.EntityFramework"
             });
         }
 

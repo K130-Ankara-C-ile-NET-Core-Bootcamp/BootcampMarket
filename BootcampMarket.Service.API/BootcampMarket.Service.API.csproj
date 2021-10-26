@@ -5,12 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Repository.Dapper\BootcampMarket.Data.MSSQL.Repository.Dapper.csproj" />
-    <ProjectReference Include="..\BootcampMarket.Data.MSSQL.UnitOfWork.Dapper\BootcampMarket.Data.MSSQL.UnitOfWork.Dapper.csproj" />
+    <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Migrations.EntityFramework\BootcampMarket.Data.MSSQL.Migrations.EntityFramework.csproj" />
     <ProjectReference Include="..\BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework\BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework.csproj" />
   </ItemGroup>
 

@@ -61,6 +61,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Data.MSSQL.R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework", "BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework\BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework.csproj", "{69EF6450-DF79-4209-8354-6FC52114E090}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Data.MSSQL.Migrations", "BootcampMarket.Data.MSSQL.Migrations", "{326692BD-A3D1-4864-BE7D-7C96A5353B17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Data.MSSQL.Migrations.EntityFramework", "BootcampMarket.Data.MSSQL.Migrations.EntityFramework\BootcampMarket.Data.MSSQL.Migrations.EntityFramework.csproj", "{55F8E8D6-7F43-4AA6-A9C2-00A362FCC32F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +127,10 @@ Global
 		{69EF6450-DF79-4209-8354-6FC52114E090}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69EF6450-DF79-4209-8354-6FC52114E090}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69EF6450-DF79-4209-8354-6FC52114E090}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55F8E8D6-7F43-4AA6-A9C2-00A362FCC32F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55F8E8D6-7F43-4AA6-A9C2-00A362FCC32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55F8E8D6-7F43-4AA6-A9C2-00A362FCC32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55F8E8D6-7F43-4AA6-A9C2-00A362FCC32F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -154,6 +162,8 @@ Global
 		{F20A4CB5-908E-4E95-984C-CFBCDC513061} = {CBBF2AB8-E73D-401B-9794-F8E0E1894B32}
 		{3C51A07C-9841-45C7-88A9-F1D5B8CF392F} = {A5E3069C-22BF-4816-8AB2-5CF8723216A7}
 		{69EF6450-DF79-4209-8354-6FC52114E090} = {DC52CD0A-867E-4CF8-9E44-3B29A1093ADE}
+		{326692BD-A3D1-4864-BE7D-7C96A5353B17} = {524CDE7C-3F8C-4692-A302-A363656C130F}
+		{55F8E8D6-7F43-4AA6-A9C2-00A362FCC32F} = {326692BD-A3D1-4864-BE7D-7C96A5353B17}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2C1676A-012E-4500-A055-66AD88B50B9C}

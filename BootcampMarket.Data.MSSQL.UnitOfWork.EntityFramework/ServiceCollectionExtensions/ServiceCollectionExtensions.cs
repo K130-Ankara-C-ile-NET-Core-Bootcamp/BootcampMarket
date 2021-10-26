@@ -11,8 +11,10 @@ namespace BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework.ServiceCollection
            this IServiceCollection services,
            EntityFrameworkUnitOfWorkOptions options)
         {
-            services.AddDbContext<BootcampMarketDbContext>(x=>
-                x.UseSqlServer(options.ConnectionString)
+            services.AddDbContext<BootcampMarketDbContext>(x =>
+                x.UseSqlServer(options.ConnectionString,
+                r => r.MigrationsAssembly(options.MigrationAssembly)
+                )
             );
 
             services.AddScoped<EntityFrameworkUnitOfWork>();

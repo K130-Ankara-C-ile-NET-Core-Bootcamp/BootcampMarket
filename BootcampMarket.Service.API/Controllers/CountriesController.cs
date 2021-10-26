@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BootcampMarket.Data.MSSQL.Entity;
-using BootcampMarket.Data.MSSQL.Repository.Dapper;
-using BootcampMarket.Data.MSSQL.Repository.Infrastructure;
-using BootcampMarket.Data.MSSQL.UnitOfWork.Dapper;
 using BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework;
 using BootcampMarket.Service.API.Models.Country;
 using Microsoft.AspNetCore.Mvc;
