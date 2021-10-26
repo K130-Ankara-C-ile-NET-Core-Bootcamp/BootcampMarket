@@ -50,16 +50,20 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
                 transaction: Transaction);
         }
 
-        public Task<int> InsertAsync(Country entity)
+        public async Task<Country> InsertAsync(Country entity)
         {
-            var sql = @"INSERT INTO Country (Name, CreatedBy)
-                            VALUES(@Name, @CreatedBy)
+            var sql = @"INSERT INTO Country (Name, CreatedById)
+                            VALUES(@Name, @CreatedById)
                         SELECT SCOPE_IDENTITY()";
 
-            return Connection.QuerySingleAsync<int>(
+            var id = await Connection.QuerySingleAsync<int>(
                 sql,
                 param: entity,
                 transaction: Transaction);
+
+            entity.Id = id;
+
+            return entity;
         }
 
         public Task<int> UpdateAsync(Country entity)
@@ -67,7 +71,7 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
             var sql = @"UPDATE Country SET
                         Name = @Name,
                         ModifyDate = GETDATE(),
-                        ModifiedBy = @ModifiedBy
+                        ModifiedById = @ModifiedById
                         WHERE ID = @Id AND DELETETIME IS NULL";
 
             return Connection.ExecuteAsync(

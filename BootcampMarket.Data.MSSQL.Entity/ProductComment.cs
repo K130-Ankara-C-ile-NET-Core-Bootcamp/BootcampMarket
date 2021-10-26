@@ -17,8 +17,16 @@ namespace BootcampMarket.Data.MSSQL.Entity
 
         public DateTime? DeleteDate { get; set; }
 
-        public int CreatedBy { get; set; }
+        public int CreatedById { get; set; }
 
-        public int? DeletedBy { get; set; }
+        public int? DeletedById { get; set; }
+
+        public virtual Customer CreatedBy { get; set; }
+
+        public virtual Customer Customer { get; set; }
+
+        public virtual Customer DeletedBy { get; set; }
+
+        public virtual Product Product { get; set; }
     }
 }

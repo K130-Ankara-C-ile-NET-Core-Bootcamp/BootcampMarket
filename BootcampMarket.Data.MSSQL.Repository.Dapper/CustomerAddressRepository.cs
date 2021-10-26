@@ -12,8 +12,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
     public class CustomerAddressRepository : DapperRepositoryBase, ICustomerAddressRepository
     {
         public CustomerAddressRepository(
-            IDbConnection connection, 
-            IDbTransaction transaction) 
+            IDbConnection connection,
+            IDbTransaction transaction)
             : base(connection, transaction)
         {
         }
@@ -51,24 +51,28 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
                 transaction: Transaction);
         }
 
-        public Task<int> InsertAsync(CustomerAddress entity)
+        public async Task<CustomerAddress> InsertAsync(CustomerAddress entity)
         {
             var sql = @"INSERT INTO Country 
                         (
                          CustomerId, CountryId, CityId, 
-                         DistrictId, Address, CreatedBy
+                         DistrictId, Address, CreatedById
                         )
                         VALUES
                         (
                         @CustomerId, @CountryId, @CityId, 
-                        @DistrictId, @Address, @CreatedBy
+                        @DistrictId, @Address, @CreatedById
                         )
                         SELECT SCOPE_IDENTITY()";
 
-            return Connection.QuerySingleAsync<int>(
+            var id = await Connection.QuerySingleAsync<int>(
                 sql,
                 param: entity,
                 transaction: Transaction);
+
+            entity.Id = id;
+
+            return entity;
         }
 
         public Task<int> UpdateAsync(CustomerAddress entity)
@@ -80,7 +84,7 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
                         DistrictId = @DistrictId,
                         Address = @Address,
                         ModifyDate = GETDATE(),
-                        ModifiedBy = @ModifiedBy
+                        ModifiedById = @ModifiedById
                         WHERE ID = @Id AND DELETETIME IS NULL";
 
             return Connection.ExecuteAsync(

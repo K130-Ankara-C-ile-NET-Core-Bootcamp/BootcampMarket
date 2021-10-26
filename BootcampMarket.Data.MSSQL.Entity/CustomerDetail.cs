@@ -16,5 +16,7 @@ namespace BootcampMarket.Data.MSSQL.Entity
         public DateTime CreateDate { get; set; }
 
         public DateTime? ModifyDate { get; set; }
+
+        public virtual Customer Customer { get; set; }
     }
 }

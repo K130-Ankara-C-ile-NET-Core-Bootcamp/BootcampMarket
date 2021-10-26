@@ -12,8 +12,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
     public class UserRepository : DapperRepositoryBase, IUserRepository
     {
         public UserRepository(
-            IDbConnection connection, 
-            IDbTransaction transaction) 
+            IDbConnection connection,
+            IDbTransaction transaction)
             : base(connection, transaction)
         {
         }
@@ -51,18 +51,22 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
                 transaction: Transaction);
         }
 
-        public Task<int> InsertAsync(User entity)
+        public async Task<User> InsertAsync(User entity)
         {
             var sql = @"INSERT INTO [User] 
-                        (Email, Password, UserName, CreatedBy)
+                        (Email, Password, UserName, CreatedById)
                         VALUES
-                        (@Email, @Password, @UserName, @CreatedBy)
+                        (@Email, @Password, @UserName, @CreatedById)
                         SELECT SCOPE_IDENTITY()";
 
-            return Connection.QuerySingleAsync<int>(
+            var id = await Connection.QuerySingleAsync<int>(
                 sql,
                 param: entity,
                 transaction: Transaction);
+
+            entity.Id = id;
+
+            return entity;
         }
 
         public Task<int> UpdateAsync(User entity)
@@ -72,7 +76,7 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
                         Password = @Password, 
                         UserName = @UserName,
                         ModifyDate = GETDATE(),
-                        ModifiedBy = @ModifiedBy
+                        ModifiedById = @ModifiedById
                         WHERE ID = @Id AND DELETETIME IS NULL";
 
             return Connection.ExecuteAsync(

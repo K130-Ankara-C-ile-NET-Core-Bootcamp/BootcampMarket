@@ -51,16 +51,20 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
                 transaction: Transaction);
         }
 
-        public Task<int> InsertAsync(Customer entity)
+        public async Task<Customer> InsertAsync(Customer entity)
         {
             var sql = @"INSERT INTO Customer (Email, Password)
                             VALUES(@Email, @Password)
                         SELECT SCOPE_IDENTITY()";
 
-            return Connection.QuerySingleAsync<int>(
+            var id = await Connection.QuerySingleAsync<int>(
                 sql,
                 param: entity,
                 transaction: Transaction);
+
+            entity.Id = id;
+
+            return entity;
         }
 
         public Task<int> UpdateAsync(Customer entity)

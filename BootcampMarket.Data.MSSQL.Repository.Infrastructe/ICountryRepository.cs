@@ -7,7 +7,7 @@ namespace BootcampMarket.Data.MSSQL.Repository.Infrastructure
 {
     public interface ICountryRepository :
         ISelectableAsyncRepository<Country, int>,
-        IInsertableAsyncRepository<Country, int>,
+        IInsertableAsyncRepository<Country>,
         IUpdatableAsyncRepository<Country>,
         IDeletableAsyncRepository<Country, int>
     {

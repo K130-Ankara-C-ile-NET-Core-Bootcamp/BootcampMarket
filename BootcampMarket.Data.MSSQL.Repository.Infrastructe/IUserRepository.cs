@@ -5,7 +5,7 @@ namespace BootcampMarket.Data.MSSQL.Repository.Infrastructure
 {
     public interface IUserRepository :
         ISelectableAsyncRepository<User, int>,
-        IInsertableAsyncRepository<User, int>,
+        IInsertableAsyncRepository<User>,
         IUpdatableAsyncRepository<User>,
         IDeletableAsyncRepository<User, int>
     {

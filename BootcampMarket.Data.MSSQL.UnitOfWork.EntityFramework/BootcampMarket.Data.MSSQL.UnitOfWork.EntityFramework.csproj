@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BootcampMarket.Core.Data.UnitOfWork.Concrete\BootcampMarket.Core.Data.UnitOfWork.Concrete.csproj" />
+    <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Context.EntityFramework\BootcampMarket.Data.MSSQL.Context.EntityFramework.csproj" />
+    <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Repository.EntityFramework\BootcampMarket.Data.MSSQL.Repository.EntityFramework.csproj" />
+    <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Repository.Infrastructe\BootcampMarket.Data.MSSQL.Repository.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

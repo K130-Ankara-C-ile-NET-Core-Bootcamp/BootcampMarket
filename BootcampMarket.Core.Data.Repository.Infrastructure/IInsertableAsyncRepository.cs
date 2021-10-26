@@ -3,10 +3,9 @@ using BootcampMarket.Core.Data.Entity;
 
 namespace BootcampMarket.Core.Data.Repository.Infrastructure
 {
-    public interface IInsertableAsyncRepository<TEntity, TId>
+    public interface IInsertableAsyncRepository<TEntity>
         where TEntity : IEntity
-        where TId : struct
     {
-        Task<int> InsertAsync(TEntity entity);
+        Task<TEntity> InsertAsync(TEntity entity);
     }
 }

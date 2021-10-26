@@ -1,4 +1,6 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using BootcampMarket.Core.Data.UnitOfWork.Concrete;
 using BootcampMarket.Core.Data.UnitOfWork.Infrastructure;
 using BootcampMarket.Data.MSSQL.Repository.Dapper;
@@ -49,13 +51,65 @@ namespace BootcampMarket.Data.MSSQL.UnitOfWork.Dapper
         private IUserRepository _userRepository;
         #endregion
 
-        public DapperUnitOfWork(
-            IUnitOfWorkOptions options)
-            : base(options)
+        protected IDbConnection Connection { get; set; }
+
+        protected IDbTransaction Transaction { get; set; }
+
+        public DapperUnitOfWork(IUnitOfWorkOptions options)
         {
             Connection = new SqlConnection(options.ConnectionString);
             Connection.Open();
             Transaction = Connection.BeginTransaction();
+        }
+
+        public override void Commit()
+        {
+            try
+            {
+                Transaction.Commit();
+            }
+            catch (Exception)
+            {
+                Transaction.Rollback();
+
+                throw;
+            }
+        }
+
+        public override void Rollback()
+        {
+            try
+            {
+                Transaction.Rollback();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        protected override void FreeResources(bool disposing)
+        {
+            if (disposing)
+            {
+                if (Transaction != null)
+                {
+                    if (Connection != null)
+                    {
+                        if (Connection.State != ConnectionState.Closed)
+                        {
+                            Connection.Close();
+                        }
+
+                        Connection.Dispose();
+                    }
+
+                    Transaction.Dispose();
+                }
+            }
+
+            Transaction = null;
+            Connection = null;
         }
     }
 }

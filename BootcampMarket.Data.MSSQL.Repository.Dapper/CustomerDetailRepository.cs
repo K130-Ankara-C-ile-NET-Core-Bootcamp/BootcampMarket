@@ -12,8 +12,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
     public class CustomerDetailRepository : DapperRepositoryBase, ICustomerDetailRepository
     {
         public CustomerDetailRepository(
-            IDbConnection connection, 
-            IDbTransaction transaction)  
+            IDbConnection connection,
+            IDbTransaction transaction)
             : base(connection, transaction)
         {
         }
@@ -35,18 +35,19 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
                 transaction: Transaction);
         }
 
-        public Task<int> InsertAsync(CustomerDetail entity)
+        public async Task<CustomerDetail> InsertAsync(CustomerDetail entity)
         {
             var sql = @"INSERT INTO Country 
                         (CustomerId, Name, Surname, Birthdate)
                         VALUES
-                        (@CustomerId, @Name, @Surname, @Birthdate)
-                        SELECT SCOPE_IDENTITY()";
+                        (@CustomerId, @Name, @Surname, @Birthdate)";
 
-            return Connection.QuerySingleAsync<int>(
-                sql,
-                param: entity,
-                transaction: Transaction);
+            await Connection.QuerySingleAsync<int>(
+                 sql,
+                 param: entity,
+                 transaction: Transaction);
+
+            return entity;
         }
 
         public Task<int> UpdateAsync(CustomerDetail entity)
