@@ -1,4 +1,4 @@
-﻿using BootcampMarket.Core.Data.UnitOfWork.Concrete;
+﻿using BootcampMarket.Data.MSSQL.UnitOfWork.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BootcampMarket.Data.MSSQL.UnitOfWork.Dapper.ServiceCollectionExtensions
@@ -9,7 +9,7 @@ namespace BootcampMarket.Data.MSSQL.UnitOfWork.Dapper.ServiceCollectionExtension
             this IServiceCollection services,
             DapperUnitOfWorkOptions options)
         {
-            services.AddScoped(
+            services.AddScoped<IUnitOfWork>(
                 provider => new DapperUnitOfWork(options));
 
             return services;

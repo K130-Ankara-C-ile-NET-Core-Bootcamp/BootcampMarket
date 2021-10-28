@@ -1,5 +1,5 @@
-﻿using BootcampMarket.Core.Data.UnitOfWork.Concrete;
-using BootcampMarket.Data.MSSQL.Context.EntityFramework;
+﻿using BootcampMarket.Data.MSSQL.Context.EntityFramework;
+using BootcampMarket.Data.MSSQL.UnitOfWork.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,7 +17,7 @@ namespace BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework.ServiceCollection
                 )
             );
 
-            services.AddScoped<EntityFrameworkUnitOfWork>();
+            services.AddScoped<IUnitOfWork, EntityFrameworkUnitOfWork>();
 
             return services;
         }

@@ -1,6 +1,6 @@
-﻿namespace BootcampMarket.Service.API.Models.Country
+﻿namespace BootcampMarket.Business.Manager.Model.Country
 {
-    public class CountryVM
+    public class CountryDTO
     {
         public int Id { get; set; }
 

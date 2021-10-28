@@ -13,8 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BootcampMarket.Business.Manager\BootcampMarket.Business.Manager.csproj" />
+    <ProjectReference Include="..\BootcampMarket.Business.Operation\BootcampMarket.Business.Operation.csproj" />
     <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Migrations.EntityFramework\BootcampMarket.Data.MSSQL.Migrations.EntityFramework.csproj" />
     <ProjectReference Include="..\BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework\BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework.csproj" />
+    <ProjectReference Include="..\BootcampMarket.Mapper\BootcampMarket.Mapper.csproj" />
+    <ProjectReference Include="..\BootcampMarket.UI.Model.ViewModel\BootcampMarket.UI.Model.ViewModel.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,12 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BootcampMarket.Core.Data.UnitOfWork.Concrete\BootcampMarket.Core.Data.UnitOfWork.Concrete.csproj" />
-    <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Repository.Dapper\BootcampMarket.Data.MSSQL.Repository.Dapper.csproj" />
+    <ProjectReference Include="..\BootcampMarket.Business.Operation.Infrastructure\BootcampMarket.Business.Operation.Infrastructure.csproj" />
+    <ProjectReference Include="..\BootcampMarket.Core.Exception.DatabaseException\BootcampMarket.Core.Exception.DatabaseException.csproj" />
     <ProjectReference Include="..\BootcampMarket.Data.MSSQL.UnitOfWork.Infrastructure\BootcampMarket.Data.MSSQL.UnitOfWork.Infrastructure.csproj" />
   </ItemGroup>
 

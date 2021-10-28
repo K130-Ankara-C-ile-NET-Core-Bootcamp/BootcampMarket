@@ -1,5 +1,8 @@
+using BootcampMarket.Business.Manager.ServiceCollectionExtensions;
+using BootcampMarket.Business.Operation.ServiceCollectionExtensions;
 using BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework;
 using BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework.ServiceCollectionExtensions;
+using BootcampMarket.Mapper.ServiceCollectionExtensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-namespace BootcampMarket.Service.API
+namespace BootcampMarket.UI.Service.API
 {
     public class Startup
     {
@@ -39,6 +42,12 @@ namespace BootcampMarket.Service.API
                 ConnectionString = conStr,
                 MigrationAssembly = "BootcampMarket.Data.MSSQL.Migrations.EntityFramework"
             });
+
+            services.AddAutoMapper();
+
+            services.AddBusinessOperations();
+
+            services.AddBusinessManagers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

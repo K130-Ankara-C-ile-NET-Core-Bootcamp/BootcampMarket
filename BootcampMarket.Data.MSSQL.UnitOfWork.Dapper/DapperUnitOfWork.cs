@@ -8,7 +8,7 @@ using BootcampMarket.Data.MSSQL.Repository.Infrastructure;
 
 namespace BootcampMarket.Data.MSSQL.UnitOfWork.Dapper
 {
-    public class DapperUnitOfWork : UnitOfWorkBase
+    public class DapperUnitOfWork : UnitOfWorkBase, Infrastructure.IUnitOfWork
     {
         #region Public Properties
         public ICityRepository CityRepository
@@ -62,7 +62,7 @@ namespace BootcampMarket.Data.MSSQL.UnitOfWork.Dapper
             Transaction = Connection.BeginTransaction();
         }
 
-        public override void Commit()
+        public void Commit()
         {
             try
             {
@@ -76,7 +76,7 @@ namespace BootcampMarket.Data.MSSQL.UnitOfWork.Dapper
             }
         }
 
-        public override void Rollback()
+        public void Rollback()
         {
             try
             {

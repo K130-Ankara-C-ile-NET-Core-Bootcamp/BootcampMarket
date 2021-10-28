@@ -2,10 +2,11 @@
 using BootcampMarket.Data.MSSQL.Context.EntityFramework;
 using BootcampMarket.Data.MSSQL.Repository.EntityFramework;
 using BootcampMarket.Data.MSSQL.Repository.Infrastructure;
+using BootcampMarket.Data.MSSQL.UnitOfWork.Infrastructure;
 
 namespace BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework
 {
-    public class EntityFrameworkUnitOfWork : UnitOfWorkBase
+    public class EntityFrameworkUnitOfWork : UnitOfWorkBase, IUnitOfWork
     {
         public BootcampMarketDbContext Context { get; private set; }
 
@@ -55,12 +56,12 @@ namespace BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework
             Context = context;
         }
 
-        public override void Commit()
+        public void Commit()
         {
             Context.SaveChanges();
         }
 
-        public override void Rollback()
+        public void Rollback()
         {
             Context.ChangeTracker.Clear();
         }

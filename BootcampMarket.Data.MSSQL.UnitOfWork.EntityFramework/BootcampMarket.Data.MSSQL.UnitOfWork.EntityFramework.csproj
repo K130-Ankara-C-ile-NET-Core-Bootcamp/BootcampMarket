@@ -9,6 +9,7 @@
     <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Context.EntityFramework\BootcampMarket.Data.MSSQL.Context.EntityFramework.csproj" />
     <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Repository.EntityFramework\BootcampMarket.Data.MSSQL.Repository.EntityFramework.csproj" />
     <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Repository.Infrastructe\BootcampMarket.Data.MSSQL.Repository.Infrastructure.csproj" />
+    <ProjectReference Include="..\BootcampMarket.Data.MSSQL.UnitOfWork.Infrastructure\BootcampMarket.Data.MSSQL.UnitOfWork.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

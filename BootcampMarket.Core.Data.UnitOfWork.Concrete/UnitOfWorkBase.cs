@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Data;
-using BootcampMarket.Core.Data.UnitOfWork.Infrastructure;
 
 namespace BootcampMarket.Core.Data.UnitOfWork.Concrete
 {
-    public abstract class UnitOfWorkBase : IUnitOfWork
+    public abstract class UnitOfWorkBase : IDisposable
     {
         private bool _disposed;
-
-        // Apply changes to database
-        public abstract void Commit();
-
-        // Revert database changes
-        public abstract void Rollback();
 
         public void Dispose()
         {
