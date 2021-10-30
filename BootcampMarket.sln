@@ -63,41 +63,43 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Data.MSSQL.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Data.MSSQL.Migrations.EntityFramework", "BootcampMarket.Data.MSSQL.Migrations.EntityFramework\BootcampMarket.Data.MSSQL.Migrations.EntityFramework.csproj", "{55F8E8D6-7F43-4AA6-A9C2-00A362FCC32F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Data.MSSQL.UnitOfWork.Infrastructure", "BootcampMarket.Data.MSSQL.UnitOfWork.Infrastructure\BootcampMarket.Data.MSSQL.UnitOfWork.Infrastructure.csproj", "{657C23E7-B9A7-4F1E-B871-042393D04AED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Data.MSSQL.UnitOfWork.Infrastructure", "BootcampMarket.Data.MSSQL.UnitOfWork.Infrastructure\BootcampMarket.Data.MSSQL.UnitOfWork.Infrastructure.csproj", "{657C23E7-B9A7-4F1E-B871-042393D04AED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Core.Exception", "BootcampMarket.Core.Exception", "{10DAAA92-F221-4CF1-927D-7B547EF0CE3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Core.Exception.Base", "BootcampMarket.Core.Exception.Base\BootcampMarket.Core.Exception.Base.csproj", "{37150E55-1064-4894-8196-447CC9B1EDA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Core.Exception.Base", "BootcampMarket.Core.Exception.Base\BootcampMarket.Core.Exception.Base.csproj", "{37150E55-1064-4894-8196-447CC9B1EDA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Core.Exception.BusinessException", "BootcampMarket.Core.Exception.BusinessException\BootcampMarket.Core.Exception.BusinessException.csproj", "{BFB88157-34CB-4149-B3CC-1119B2B9C592}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Core.Exception.BusinessException", "BootcampMarket.Core.Exception.BusinessException\BootcampMarket.Core.Exception.BusinessException.csproj", "{BFB88157-34CB-4149-B3CC-1119B2B9C592}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Core.Exception.DatabaseException", "BootcampMarket.Core.Exception.DatabaseException\BootcampMarket.Core.Exception.DatabaseException.csproj", "{FC6556B2-37ED-4DB3-9B5C-342DFFE5DA97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Core.Exception.DatabaseException", "BootcampMarket.Core.Exception.DatabaseException\BootcampMarket.Core.Exception.DatabaseException.csproj", "{FC6556B2-37ED-4DB3-9B5C-342DFFE5DA97}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Business", "BootcampMarket.Business", "{A01125D5-93B6-4841-B06E-76FB9AC6DB4A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Business.Manager", "BootcampMarket.Business.Manager", "{9EEDE095-0809-4F15-B877-378431ED6EF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Business.Manager", "BootcampMarket.Business.Manager\BootcampMarket.Business.Manager.csproj", "{7C71A0D2-C41E-4D61-BD2C-85D39E6BB51A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Business.Manager", "BootcampMarket.Business.Manager\BootcampMarket.Business.Manager.csproj", "{7C71A0D2-C41E-4D61-BD2C-85D39E6BB51A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Business.Manager.Infrastructure", "BootcampMarket.Business.Manager.Infrastructure\BootcampMarket.Business.Manager.Infrastructure.csproj", "{62B8E760-EBA6-4825-8740-0F0BEEDCA6A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Business.Manager.Infrastructure", "BootcampMarket.Business.Manager.Infrastructure\BootcampMarket.Business.Manager.Infrastructure.csproj", "{62B8E760-EBA6-4825-8740-0F0BEEDCA6A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Business.Manager.Model", "BootcampMarket.Business.Manager.Model\BootcampMarket.Business.Manager.Model.csproj", "{92589248-855F-480C-A563-F59E552EC08C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Business.Manager.Model", "BootcampMarket.Business.Manager.Model\BootcampMarket.Business.Manager.Model.csproj", "{92589248-855F-480C-A563-F59E552EC08C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Business.Operation", "BootcampMarket.Business.Operation", "{50544DA6-B468-49D0-BAA4-D484C1639F93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Business.Operation", "BootcampMarket.Business.Operation\BootcampMarket.Business.Operation.csproj", "{56B55260-2D27-457B-ACE3-7CF0FC5AA884}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Business.Operation", "BootcampMarket.Business.Operation\BootcampMarket.Business.Operation.csproj", "{56B55260-2D27-457B-ACE3-7CF0FC5AA884}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Business.Operation.Infrastructure", "BootcampMarket.Business.Operation.Infrastructure\BootcampMarket.Business.Operation.Infrastructure.csproj", "{20725ACE-6AB4-4CFC-852B-AD255DA22EBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Business.Operation.Infrastructure", "BootcampMarket.Business.Operation.Infrastructure\BootcampMarket.Business.Operation.Infrastructure.csproj", "{20725ACE-6AB4-4CFC-852B-AD255DA22EBC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.UI.Model", "BootcampMarket.UI.Model", "{F25A4900-AA89-4777-9A2C-0A6222987138}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.UI.Service", "BootcampMarket.UI.Service", "{CE098160-1972-4DC5-9236-40F076429EAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.UI.Model.ViewModel", "BootcampMarket.UI.Model.ViewModel\BootcampMarket.UI.Model.ViewModel.csproj", "{10257870-509C-4356-BE95-2A32BBE56D16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.UI.Model.ViewModel", "BootcampMarket.UI.Model.ViewModel\BootcampMarket.UI.Model.ViewModel.csproj", "{10257870-509C-4356-BE95-2A32BBE56D16}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Mapper", "BootcampMarket.Mapper", "{06164562-5AE2-477D-92B6-8CCD489F88B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Mapper", "BootcampMarket.Mapper\BootcampMarket.Mapper.csproj", "{53322B23-B0E0-46E2-B333-ECCE9E4EE72E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Mapper", "BootcampMarket.Mapper\BootcampMarket.Mapper.csproj", "{53322B23-B0E0-46E2-B333-ECCE9E4EE72E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Data.MSSQL.Entity.Base", "BootcampMarket.Data.MSSQL.Entity.Base\BootcampMarket.Data.MSSQL.Entity.Base.csproj", "{8625BBC0-DC85-44D3-9543-763B82FC1FA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -209,6 +211,10 @@ Global
 		{53322B23-B0E0-46E2-B333-ECCE9E4EE72E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53322B23-B0E0-46E2-B333-ECCE9E4EE72E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53322B23-B0E0-46E2-B333-ECCE9E4EE72E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8625BBC0-DC85-44D3-9543-763B82FC1FA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8625BBC0-DC85-44D3-9543-763B82FC1FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8625BBC0-DC85-44D3-9543-763B82FC1FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8625BBC0-DC85-44D3-9543-763B82FC1FA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -257,6 +263,7 @@ Global
 		{CE098160-1972-4DC5-9236-40F076429EAA} = {6495CCDB-B576-45E7-BDEC-51B3FC35518E}
 		{10257870-509C-4356-BE95-2A32BBE56D16} = {F25A4900-AA89-4777-9A2C-0A6222987138}
 		{53322B23-B0E0-46E2-B333-ECCE9E4EE72E} = {06164562-5AE2-477D-92B6-8CCD489F88B6}
+		{8625BBC0-DC85-44D3-9543-763B82FC1FA6} = {6316F17F-C5A5-4661-A431-0F91BB7F9C15}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2C1676A-012E-4500-A055-66AD88B50B9C}

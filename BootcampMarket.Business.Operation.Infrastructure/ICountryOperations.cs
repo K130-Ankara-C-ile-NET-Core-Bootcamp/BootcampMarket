@@ -11,5 +11,9 @@ namespace BootcampMarket.Business.Operation.Infrastructure
         Task<Country> GetCountryByIdAsync(int id);
 
         Task<IEnumerable<Country>> GetAllCountries();
+
+        Task<int> UpdateCountryAsync(Country country);
+
+        Task<int> DeleteCountryAsync(Country country);
     }
 }

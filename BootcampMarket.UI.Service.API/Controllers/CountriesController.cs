@@ -4,13 +4,13 @@ using AutoMapper;
 using BootcampMarket.Business.Manager.Infrastructure;
 using BootcampMarket.Business.Manager.Model.Country;
 using BootcampMarket.UI.Model.ViewModel.Country;
+using BootcampMarket.UI.Service.API.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BootcampMarket.UI.Service.API
 {
-    [ApiController]
     [Route("[controller]")]
-    public class CountriesController : ControllerBase
+    public class CountriesController : BaseController
     {
         private readonly IMapper _mapper;
 
@@ -42,6 +42,11 @@ namespace BootcampMarket.UI.Service.API
             var countryDTO = await _countryManager
                 .GetCountryByIdAsync(id);
 
+            if (countryDTO is null)
+            {
+                return NotFound();
+            }
+
             var countryVM = _mapper
                 .Map<CountryVM>(countryDTO);
 
@@ -54,9 +59,6 @@ namespace BootcampMarket.UI.Service.API
             var createCountryDTO = _mapper
                 .Map<CreateCountryDTO>(createCountryVM);
 
-            // Dummy user id
-            createCountryDTO.CreatedById = 1;
-
             var countryDTO = await _countryManager
                 .CreateCountryAsync(createCountryDTO);
 
@@ -64,6 +66,46 @@ namespace BootcampMarket.UI.Service.API
                 .Map<CountryVM>(countryDTO);
 
             return CreatedAtAction(nameof(Get), new { id = countryVM.Id }, countryVM);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, UpdateCountryVM updateCountryVM)
+        {
+            var country = await _countryManager
+                .GetCountryByIdAsync(id);
+
+            if (country is null)
+            {
+                return await Post(_mapper.
+                    Map<CreateCountryVM>(updateCountryVM));
+            }
+
+            var updateCountryDTO = _mapper
+                .Map<UpdateCountryDTO>(updateCountryVM);
+
+            updateCountryDTO.Id = id;
+
+            await _countryManager
+                .UpdateCountryAsync(updateCountryDTO);
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var country = await _countryManager
+                .GetCountryByIdAsync(id);
+
+            if (country is null)
+            {
+                return NotFound();
+            }
+
+            await _countryManager
+                .DeleteCountryByIdAsync(id);
+
+            return NoContent();
         }
     }
 }

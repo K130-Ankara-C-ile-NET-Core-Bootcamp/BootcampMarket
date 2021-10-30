@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using BootcampMarket.Data.MSSQL.Entity;
@@ -25,8 +24,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<int> DeleteByIdAsync(int id)
         {
-            var sql = @"UPDATE District SET DeleteDate = GETDATE()
-                        WHERE Id = @Id AND DeleteDate IS NULL";
+            var sql = @"UPDATE District SET Status = 0
+                        WHERE Id = @Id AND Status = 1";
 
             return Connection.ExecuteAsync(
                 sql,
@@ -36,14 +35,14 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<IEnumerable<District>> GetAllAsync()
         {
-            var sql = @"SELECT * FROM District WHERE DeleteDate IS NULL";
+            var sql = @"SELECT * FROM District WHERE Status = 1";
 
             return Connection.QueryAsync<District>(sql, transaction: Transaction);
         }
 
         public Task<District> GetByIdAsync(int id)
         {
-            var sql = @"SELECT * FROM District WHERE ID = @Id AND DeleteDate IS NULL";
+            var sql = @"SELECT * FROM District WHERE ID = @Id AND Status = 1";
 
             return Connection.QueryFirstOrDefaultAsync<District>(
                 sql,
@@ -53,8 +52,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public async Task<District> InsertAsync(District entity)
         {
-            var sql = @"INSERT INTO Country (CityId, Name, CreatedById)
-                        VALUES(@CityId, @Name, @CreatedById)
+            var sql = @"INSERT INTO Country (CityId, Name, Status)
+                        VALUES(@CityId, @Name, @Status)
                         SELECT SCOPE_IDENTITY()";
 
             var id = await Connection.QuerySingleAsync<int>(
@@ -72,9 +71,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
             var sql = @"UPDATE Country District
                         CityId = @CityId,
                         Name = @Name,
-                        ModifyDate = GETDATE(),
-                        ModifiedById = @ModifiedById
-                        WHERE ID = @Id AND DELETETIME IS NULL";
+                        Status = @Status
+                        WHERE ID = @Id AND Status = 1";
 
             return Connection.ExecuteAsync(
                 sql,

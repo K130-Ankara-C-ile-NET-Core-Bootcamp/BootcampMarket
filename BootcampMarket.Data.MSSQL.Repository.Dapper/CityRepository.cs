@@ -24,8 +24,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<int> DeleteByIdAsync(int id)
         {
-            var sql = @"UPDATE City SET DeleteDate = GETDATE()
-                        WHERE Id = @Id AND DeleteDate IS NULL";
+            var sql = @"UPDATE City SET Status = 0
+                        WHERE Id = @Id AND Status = 1";
 
             return Connection.ExecuteAsync(
                 sql,
@@ -35,14 +35,14 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<IEnumerable<City>> GetAllAsync()
         {
-            var sql = @"SELECT * FROM City WHERE DeleteDate IS NULL";
+            var sql = @"SELECT * FROM City WHERE Status = 1";
 
             return Connection.QueryAsync<City>(sql, transaction: Transaction);
         }
 
         public Task<City> GetByIdAsync(int id)
         {
-            var sql = @"SELECT * FROM City WHERE ID = @Id AND DeleteDate IS NULL";
+            var sql = @"SELECT * FROM City WHERE ID = @Id AND Status = 1";
 
             return Connection.QueryFirstOrDefaultAsync<City>(
                 sql,
@@ -52,8 +52,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public async Task<City> InsertAsync(City entity)
         {
-            var sql = @"INSERT INTO City (CountryId, Name, CreatedById)
-                            VALUES(@CountryId, @Name, @CreatedById)
+            var sql = @"INSERT INTO City (CountryId, Name, Status)
+                            VALUES(@CountryId, @Name, @Status)
                         SELECT SCOPE_IDENTITY()";
 
             var id = await Connection.QuerySingleAsync<int>(
@@ -71,9 +71,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
             var sql = @"UPDATE City SET
                         CountryId = @CountryId,
                         Name = @Name,
-                        ModifyDate = GETDATE(),
-                        ModifiedById = @ModifiedById
-                        WHERE ID = @Id AND DELETETIME IS NULL";
+                        Status = @Status
+                        WHERE ID = @Id AND Status = 1";
 
             return Connection.ExecuteAsync(
                 sql,

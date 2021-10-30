@@ -73,5 +73,45 @@ namespace BootcampMarket.Business.Manager
                 throw new BusinessException(ex.Message, ex);
             }
         }
+
+        public async Task UpdateCountryAsync(UpdateCountryDTO country)
+        {
+            try
+            {
+                var entity = await _countryOperations.GetCountryByIdAsync(country.Id);
+
+                if (entity is null)
+                {
+                    throw new BusinessException("Not found");
+                }
+
+                entity = _mapper.Map(country, entity);
+
+                await _countryOperations.UpdateCountryAsync(entity);
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException(ex.Message, ex);
+            }
+        }
+
+        public async Task DeleteCountryByIdAsync(int id)
+        {
+            try
+            {
+                var entity = await _countryOperations.GetCountryByIdAsync(id);
+
+                if (entity is null)
+                {
+                    throw new BusinessException("Not found");
+                }
+
+                await _countryOperations.DeleteCountryAsync(entity);
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException(ex.Message, ex);
+            }
+        }
     }
 }

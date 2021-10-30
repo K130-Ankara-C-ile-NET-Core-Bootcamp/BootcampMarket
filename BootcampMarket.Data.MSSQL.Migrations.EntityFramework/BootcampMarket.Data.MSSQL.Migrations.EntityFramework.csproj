@@ -17,4 +17,8 @@
     <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Context.EntityFramework\BootcampMarket.Data.MSSQL.Context.EntityFramework.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

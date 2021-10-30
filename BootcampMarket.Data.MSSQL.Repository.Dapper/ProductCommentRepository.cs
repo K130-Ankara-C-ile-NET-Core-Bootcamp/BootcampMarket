@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using BootcampMarket.Data.MSSQL.Entity;
@@ -25,8 +24,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<int> DeleteByIdAsync(int id)
         {
-            var sql = @"UPDATE ProductComment SET DeleteDate = GETDATE()
-                        WHERE Id = @Id AND DeleteDate IS NULL";
+            var sql = @"UPDATE ProductComment SET Status = 0
+                        WHERE Id = @Id AND Status = 1";
 
             return Connection.ExecuteAsync(
                 sql,
@@ -36,14 +35,14 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<IEnumerable<ProductComment>> GetAllAsync()
         {
-            var sql = @"SELECT * FROM ProductComment WHERE DeleteDate IS NULL";
+            var sql = @"SELECT * FROM ProductComment WHERE Status = 1";
 
             return Connection.QueryAsync<ProductComment>(sql, transaction: Transaction);
         }
 
         public Task<ProductComment> GetByIdAsync(int id)
         {
-            var sql = @"SELECT * FROM ProductComment WHERE ID = @Id AND DeleteDate IS NULL";
+            var sql = @"SELECT * FROM ProductComment WHERE ID = @Id AND Status = 1";
 
             return Connection.QueryFirstOrDefaultAsync<ProductComment>(
                 sql,
@@ -54,9 +53,9 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
         public async Task<ProductComment> InsertAsync(ProductComment entity)
         {
             var sql = @"INSERT INTO ProductComment 
-                        (CustomerId, ProductId, Comment, CreatedById)
+                        (CustomerId, ProductId, Comment, Status)
                         VALUES
-                        (@CustomerId, @ProductId, @Comment, @CreatedById)
+                        (@CustomerId, @ProductId, @Comment, @Status)
                         SELECT SCOPE_IDENTITY()";
 
             var id = await Connection.QuerySingleAsync<int>(
@@ -75,9 +74,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
                         CustomerId = @CustomerId, 
                         ProductId = @ProductId, 
                         Comment = @Comment,
-                        ModifyDate = GETDATE(),
-                        ModifiedById = @ModifiedById
-                        WHERE ID = @Id AND DELETETIME IS NULL";
+                        Status = @Status
+                        WHERE ID = @Id AND Status = 1";
 
             return Connection.ExecuteAsync(
                 sql,

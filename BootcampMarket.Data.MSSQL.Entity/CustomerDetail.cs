@@ -1,9 +1,10 @@
 ﻿using System;
 using BootcampMarket.Core.Data.Entity;
+using BootcampMarket.Data.MSSQL.Entity.Base;
 
 namespace BootcampMarket.Data.MSSQL.Entity
 {
-    public class CustomerDetail : IEntity
+    public class CustomerDetail : EntityBase, IEntity
     {
         public int CustomerId { get; set; }
 
@@ -12,10 +13,6 @@ namespace BootcampMarket.Data.MSSQL.Entity
         public string Surname { get; set; }
 
         public DateTime? BirthDate { get; set; }
-
-        public DateTime CreateDate { get; set; }
-
-        public DateTime? ModifyDate { get; set; }
 
         public virtual Customer Customer { get; set; }
     }

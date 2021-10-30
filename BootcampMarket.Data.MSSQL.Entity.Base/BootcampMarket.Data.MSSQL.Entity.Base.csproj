@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BootcampMarket.Core.Data.Entity\BootcampMarket.Core.Data.Entity.csproj" />
-    <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Entity.Base\BootcampMarket.Data.MSSQL.Entity.Base.csproj" />
   </ItemGroup>
 
 </Project>

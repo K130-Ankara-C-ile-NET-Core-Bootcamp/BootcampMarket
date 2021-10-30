@@ -4,14 +4,16 @@ using BootcampMarket.Data.MSSQL.Context.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BootcampMarket.Data.MSSQL.Migrations.EntityFramework.Migrations
 {
     [DbContext(typeof(BootcampMarketDbContext))]
-    partial class BootcampMarketDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211030160324_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

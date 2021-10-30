@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using BootcampMarket.Data.MSSQL.Entity;
@@ -25,8 +24,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<int> DeleteByIdAsync(int id)
         {
-            var sql = @"UPDATE Customer SET IsActive = 0
-                        WHERE Id = @Id AND IsActive != 0";
+            var sql = @"UPDATE Customer SET Status = 0
+                        WHERE Id = @Id AND Status = 1";
 
             return Connection.ExecuteAsync(
                 sql,
@@ -36,14 +35,14 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<IEnumerable<Customer>> GetAllAsync()
         {
-            var sql = @"SELECT * FROM Customer WHERE IsActive != 0";
+            var sql = @"SELECT * FROM Customer WHERE Status = 1";
 
             return Connection.QueryAsync<Customer>(sql, transaction: Transaction);
         }
 
         public Task<Customer> GetByIdAsync(int id)
         {
-            var sql = @"SELECT * FROM Customer WHERE ID = @Id AND IsActive != 0";
+            var sql = @"SELECT * FROM Customer WHERE ID = @Id AND Status = 1";
 
             return Connection.QueryFirstOrDefaultAsync<Customer>(
                 sql,
@@ -53,8 +52,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public async Task<Customer> InsertAsync(Customer entity)
         {
-            var sql = @"INSERT INTO Customer (Email, Password)
-                            VALUES(@Email, @Password)
+            var sql = @"INSERT INTO Customer (Email, Password, IsActive, Status)
+                            VALUES(@Email, @Password, @IsActive, @Status)
                         SELECT SCOPE_IDENTITY()";
 
             var id = await Connection.QuerySingleAsync<int>(
@@ -72,8 +71,9 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
             var sql = @"UPDATE Customer SET
                         Name = @Name,
                         Password = @Password,
-                        ModifyDate = GETDATE(),
-                        WHERE ID = @Id AND IsActive != 0";
+                        IsActive = @IsActive,
+                        Status = @Status
+                        WHERE ID = @Id AND Status = 1";
 
             return Connection.ExecuteAsync(
                 sql,

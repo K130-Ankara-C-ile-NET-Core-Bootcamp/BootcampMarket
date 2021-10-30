@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using BootcampMarket.Data.MSSQL.Entity;
@@ -25,8 +24,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<int> DeleteByIdAsync(int id)
         {
-            var sql = @"UPDATE CustomerAddress SET DeleteDate = GETDATE()
-                        WHERE Id = @Id AND DeleteDate IS NULL";
+            var sql = @"UPDATE CustomerAddress SET Status = 0
+                        WHERE Id = @Id AND Status = 1";
 
             return Connection.ExecuteAsync(
                 sql,
@@ -36,14 +35,14 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<IEnumerable<CustomerAddress>> GetAllAsync()
         {
-            var sql = @"SELECT * FROM CustomerAddress WHERE DeleteDate IS NULL";
+            var sql = @"SELECT * FROM CustomerAddress WHERE Status = 1";
 
             return Connection.QueryAsync<CustomerAddress>(sql, transaction: Transaction);
         }
 
         public Task<CustomerAddress> GetByIdAsync(int id)
         {
-            var sql = @"SELECT * FROM CustomerAddress WHERE ID = @Id AND DeleteDate IS NULL";
+            var sql = @"SELECT * FROM CustomerAddress WHERE ID = @Id AND Status = 1";
 
             return Connection.QueryFirstOrDefaultAsync<CustomerAddress>(
                 sql,
@@ -56,12 +55,12 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
             var sql = @"INSERT INTO Country 
                         (
                          CustomerId, CountryId, CityId, 
-                         DistrictId, Address, CreatedById
+                         DistrictId, Address, Status
                         )
                         VALUES
                         (
                         @CustomerId, @CountryId, @CityId, 
-                        @DistrictId, @Address, @CreatedById
+                        @DistrictId, @Address, @Status
                         )
                         SELECT SCOPE_IDENTITY()";
 
@@ -83,9 +82,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
                         CityId = @CityId,
                         DistrictId = @DistrictId,
                         Address = @Address,
-                        ModifyDate = GETDATE(),
-                        ModifiedById = @ModifiedById
-                        WHERE ID = @Id AND DELETETIME IS NULL";
+                        Status = @Status
+                        WHERE ID = @Id AND Status = 1";
 
             return Connection.ExecuteAsync(
                 sql,

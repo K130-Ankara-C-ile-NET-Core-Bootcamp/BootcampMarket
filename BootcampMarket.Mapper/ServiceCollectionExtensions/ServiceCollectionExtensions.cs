@@ -13,9 +13,7 @@ namespace BootcampMarket.Mapper.ServiceCollectionExtensions
                 cfg.ShouldMapProperty = p
                     => p.GetMethod.IsPublic || p.GetMethod.IsAssembly;
 
-                cfg.AddProfile<EntityToDTOMapperProfile>();
-
-                cfg.AddProfile<ViewModelToDTOMapperProfile>();
+                cfg.AddProfile<CountryProfile>();
             });
 
             return services;

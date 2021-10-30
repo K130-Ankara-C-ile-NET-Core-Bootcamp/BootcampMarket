@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BootcampMarket.Core.Data.Entity;
 using BootcampMarket.Core.Data.Repository.Infrastructure;
@@ -24,9 +25,9 @@ namespace BootcampMarket.Data.MSSQL.Repository.EntityFramework.Base
 
         public Task<int> DeleteAsync(TEntity entity)
         {
-            Context.Set<TEntity>().Remove(entity);
+            entity.Status = false;
 
-            return Task.FromResult(1);
+            return UpdateAsync(entity);
         }
 
         public async Task<int> DeleteByIdAsync(TId id)
@@ -38,12 +39,14 @@ namespace BootcampMarket.Data.MSSQL.Repository.EntityFramework.Base
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await Context.Set<TEntity>().ToListAsync();
+            return await Context.Set<TEntity>().Where(x => x.Status).ToListAsync();
         }
 
-        public Task<TEntity> GetByIdAsync(TId id)
+        public async Task<TEntity> GetByIdAsync(TId id)
         {
-            return Context.Set<TEntity>().FindAsync(id).AsTask();
+            var entity = await Context.Set<TEntity>().FindAsync(id);
+
+            return entity?.Status == true ? entity : null;
         }
 
         public async Task<TEntity> InsertAsync(TEntity entity)

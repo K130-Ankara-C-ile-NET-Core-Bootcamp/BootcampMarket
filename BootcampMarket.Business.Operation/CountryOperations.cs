@@ -56,5 +56,37 @@ namespace BootcampMarket.Business.Operation
                 throw new DatabaseException(ex.Message, ex);
             }
         }
+
+        public async Task<int> UpdateCountryAsync(Country country)
+        {
+            try
+            {
+                var result = await _uow.CountryRepository.UpdateAsync(country);
+
+                _uow.Commit();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new DatabaseException(ex.Message, ex);
+            }
+        }
+
+        public async Task<int> DeleteCountryAsync(Country country)
+        {
+            try
+            {
+                var result = await _uow.CountryRepository.DeleteAsync(country);
+
+                _uow.Commit();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new DatabaseException(ex.Message, ex);
+            }
+        }
     }
 }

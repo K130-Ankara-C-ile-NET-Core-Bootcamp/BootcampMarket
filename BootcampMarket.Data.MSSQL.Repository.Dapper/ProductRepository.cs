@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using BootcampMarket.Data.MSSQL.Entity;
@@ -25,8 +24,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<int> DeleteByIdAsync(int id)
         {
-            var sql = @"UPDATE Product SET DeleteDate = GETDATE()
-                        WHERE Id = @Id AND DeleteDate IS NULL";
+            var sql = @"UPDATE Product SET Status = 0
+                        WHERE Id = @Id AND Status = 1";
 
             return Connection.ExecuteAsync(
                 sql,
@@ -36,14 +35,14 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
 
         public Task<IEnumerable<Product>> GetAllAsync()
         {
-            var sql = @"SELECT * FROM Product WHERE DeleteDate IS NULL";
+            var sql = @"SELECT * FROM Product WHERE Status = 1";
 
             return Connection.QueryAsync<Product>(sql, transaction: Transaction);
         }
 
         public Task<Product> GetByIdAsync(int id)
         {
-            var sql = @"SELECT * FROM Product WHERE ID = @Id AND DeleteDate IS NULL";
+            var sql = @"SELECT * FROM Product WHERE ID = @Id AND Status = 1";
 
             return Connection.QueryFirstOrDefaultAsync<Product>(
                 sql,
@@ -55,13 +54,11 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
         {
             var sql = @"INSERT INTO Product 
                         (
-                            Name, Price,
-                            Discount, CreatedById
+                            Name, Price, Discount, Status
                         )
                         VALUES
                         (
-                            @Name, @Price,
-                            @Discount, @CreatedById
+                            @Name, @Price, @Discount, @Status
                         )
                         SELECT SCOPE_IDENTITY()";
 
@@ -81,9 +78,8 @@ namespace BootcampMarket.Data.MSSQL.Repository.Dapper
                         Name = @Name, 
                         Price = @Price,
                         Discount = @Discount,
-                        ModifyDate = GETDATE(),
-                        ModifiedById = @ModifiedById
-                        WHERE ID = @Id AND DELETETIME IS NULL";
+                        Status = @Status
+                        WHERE ID = @Id AND Status = 1";
 
             return Connection.ExecuteAsync(
                 sql,
