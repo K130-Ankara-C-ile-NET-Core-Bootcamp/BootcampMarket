@@ -2,6 +2,7 @@ using BootcampMarket.Business.Manager.ServiceCollectionExtensions;
 using BootcampMarket.Business.Operation.ServiceCollectionExtensions;
 using BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework;
 using BootcampMarket.Data.MSSQL.UnitOfWork.EntityFramework.ServiceCollectionExtensions;
+using BootcampMarket.Data.MSSQL.Validation.ServiceCollectionExtensions;
 using BootcampMarket.Mapper.ServiceCollectionExtensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,7 +24,9 @@ namespace BootcampMarket.UI.Service.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services
+                .AddControllers()
+                .AddMSSQLValidators(services);
 
             services.AddSwaggerGen(c =>
             {

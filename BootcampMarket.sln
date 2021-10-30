@@ -99,7 +99,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Mapper", "Bo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Mapper", "BootcampMarket.Mapper\BootcampMarket.Mapper.csproj", "{53322B23-B0E0-46E2-B333-ECCE9E4EE72E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampMarket.Data.MSSQL.Entity.Base", "BootcampMarket.Data.MSSQL.Entity.Base\BootcampMarket.Data.MSSQL.Entity.Base.csproj", "{8625BBC0-DC85-44D3-9543-763B82FC1FA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Data.MSSQL.Entity.Base", "BootcampMarket.Data.MSSQL.Entity.Base\BootcampMarket.Data.MSSQL.Entity.Base.csproj", "{8625BBC0-DC85-44D3-9543-763B82FC1FA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BootcampMarket.Data.MSSQL.Validation", "BootcampMarket.Data.MSSQL.Validation", "{6D1F8F66-6C92-4D2E-A705-DD7B99427CD6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootcampMarket.Data.MSSQL.Validation", "BootcampMarket.Data.MSSQL.Validation\BootcampMarket.Data.MSSQL.Validation.csproj", "{96C70BBB-0334-4F0D-A2FC-3CF354B0C44B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -215,6 +219,10 @@ Global
 		{8625BBC0-DC85-44D3-9543-763B82FC1FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8625BBC0-DC85-44D3-9543-763B82FC1FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8625BBC0-DC85-44D3-9543-763B82FC1FA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96C70BBB-0334-4F0D-A2FC-3CF354B0C44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96C70BBB-0334-4F0D-A2FC-3CF354B0C44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96C70BBB-0334-4F0D-A2FC-3CF354B0C44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96C70BBB-0334-4F0D-A2FC-3CF354B0C44B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -264,6 +272,8 @@ Global
 		{10257870-509C-4356-BE95-2A32BBE56D16} = {F25A4900-AA89-4777-9A2C-0A6222987138}
 		{53322B23-B0E0-46E2-B333-ECCE9E4EE72E} = {06164562-5AE2-477D-92B6-8CCD489F88B6}
 		{8625BBC0-DC85-44D3-9543-763B82FC1FA6} = {6316F17F-C5A5-4661-A431-0F91BB7F9C15}
+		{6D1F8F66-6C92-4D2E-A705-DD7B99427CD6} = {524CDE7C-3F8C-4692-A302-A363656C130F}
+		{96C70BBB-0334-4F0D-A2FC-3CF354B0C44B} = {6D1F8F66-6C92-4D2E-A705-DD7B99427CD6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2C1676A-012E-4500-A055-66AD88B50B9C}

@@ -6,7 +6,9 @@ using BootcampMarket.Business.Manager.Infrastructure;
 using BootcampMarket.Business.Manager.Model.Country;
 using BootcampMarket.Business.Operation.Infrastructure;
 using BootcampMarket.Core.Exception.BusinessException;
+using BootcampMarket.Core.Exception.DatabaseException;
 using BootcampMarket.Data.MSSQL.Entity;
+using FluentValidation;
 
 namespace BootcampMarket.Business.Manager
 {
@@ -16,12 +18,16 @@ namespace BootcampMarket.Business.Manager
 
         private readonly ICountryOperations _countryOperations;
 
+        private readonly IValidator<Country> _countryValidator;
+
         public CountryManager(
             IMapper mapper,
-            ICountryOperations countryOperations)
+            ICountryOperations countryOperations,
+            IValidator<Country> countryValidator)
         {
             _mapper = mapper;
             _countryOperations = countryOperations;
+            _countryValidator = countryValidator;
         }
 
         public async Task<CountryDTO> CreateCountryAsync(CreateCountryDTO country)
@@ -30,13 +36,20 @@ namespace BootcampMarket.Business.Manager
             {
                 var entity = _mapper.Map<Country>(country);
 
+                var result = await _countryValidator.ValidateAsync(entity);
+
+                if (!result.IsValid)
+                {
+                    throw new BusinessException(string.Join(",", result.Errors));
+                }
+
                 entity = await _countryOperations.CreateCountryAsync(entity);
 
                 var entityDTO = _mapper.Map<CountryDTO>(entity);
 
                 return entityDTO;
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is not BusinessException && ex is not DatabaseException)
             {
                 throw new BusinessException(ex.Message, ex);
             }
@@ -52,7 +65,7 @@ namespace BootcampMarket.Business.Manager
 
                 return entityDTO;
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is not BusinessException && ex is not DatabaseException)
             {
                 throw new BusinessException(ex.Message, ex);
             }
@@ -68,7 +81,7 @@ namespace BootcampMarket.Business.Manager
 
                 return countryDTOs;
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is not BusinessException && ex is not DatabaseException)
             {
                 throw new BusinessException(ex.Message, ex);
             }
@@ -89,7 +102,7 @@ namespace BootcampMarket.Business.Manager
 
                 await _countryOperations.UpdateCountryAsync(entity);
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is not BusinessException && ex is not DatabaseException)
             {
                 throw new BusinessException(ex.Message, ex);
             }
@@ -108,7 +121,7 @@ namespace BootcampMarket.Business.Manager
 
                 await _countryOperations.DeleteCountryAsync(entity);
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is not BusinessException && ex is not DatabaseException)
             {
                 throw new BusinessException(ex.Message, ex);
             }

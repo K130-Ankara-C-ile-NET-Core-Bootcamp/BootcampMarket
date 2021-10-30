@@ -12,6 +12,8 @@
     <ProjectReference Include="..\BootcampMarket.Business.Manager.Infrastructure\BootcampMarket.Business.Manager.Infrastructure.csproj" />
     <ProjectReference Include="..\BootcampMarket.Business.Operation.Infrastructure\BootcampMarket.Business.Operation.Infrastructure.csproj" />
     <ProjectReference Include="..\BootcampMarket.Core.Exception.BusinessException\BootcampMarket.Core.Exception.BusinessException.csproj" />
+    <ProjectReference Include="..\BootcampMarket.Core.Exception.DatabaseException\BootcampMarket.Core.Exception.DatabaseException.csproj" />
+    <ProjectReference Include="..\BootcampMarket.Data.MSSQL.Validation\BootcampMarket.Data.MSSQL.Validation.csproj" />
     <ProjectReference Include="..\BootcampMarket.Mapper\BootcampMarket.Mapper.csproj" />
   </ItemGroup>
 
